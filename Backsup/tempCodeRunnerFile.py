@@ -1,0 +1,1 @@
+output = ''.join([char for char in user_input if char not in string.punctuation])

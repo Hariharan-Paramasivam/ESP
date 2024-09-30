@@ -1,0 +1,130 @@
+# Check a number within the given range belongs to the Fibonacci Series
+# NAME : Hariharan P
+# ROLL NO : CB.EN.P2EBS24021
+# DATE : 28.08.2024
+
+def is_fibonacci(n):
+    # A helper function that checks if a given number n is a Fibonacci number.
+
+    # A number is a Fibonacci number if one or both of (5*n^2 + 4) or (5*n^2 - 4) is a perfect square.
+    def is_perfect_square(x):
+        # Check if x is a perfect square.
+        s = int(x**0.5)  # Calculate the square root of x and convert it to an integer.
+        return s * s == x  # Check if the square of the integer is equal to x.
+
+    # Return True if n is a Fibonacci number, otherwise return False.
+    return is_perfect_square(5 * n * n + 4) or is_perfect_square(5 * n * n - 4)
+
+
+def check_fibonacci_in_range(start, end):
+    # Check all numbers in the given range and print those that belong to the Fibonacci series.
+    fib_list,non_fib_list=list(),list()
+    if start>end:
+        start,end=end,start
+    # assigning the lists to store save fib numbers and non-fib numbers 
+    for num in range(start, end + 1):
+        
+        try:
+            # Try to check if the current number num is in the Fibonacci series.
+            if is_fibonacci(num):
+                fib_list.append(num)
+                #print(f"{num} belongs to the Fibonacci series")
+            else:
+                non_fib_list.append(num)
+                #print(f"{num} does not belong to the Fibonacci series")
+        except Exception as e:
+            # If any error occurs during the check, print an error message.
+            print(f"An error occurred while checking {num}: {e}")
+    return fib_list,non_fib_list
+    # return the fib and non-fib numbers
+
+
+# Example usage:
+try:
+    print('INPUT'.center(100,'-'))
+    # ANSI escape code for red text
+    RED = "\033[31m"
+    # ANSI escape codes for green and bold text
+    GREEN_BOLD = "\033[1;32m"
+    BLACK_BOLD = "\033[1m"
+    RESET = "\033[0m"
+
+    # Prompt the user to input the start of the range in red color
+    start = int(input(f"{RED}\nEnter the start of the range: {RESET}{GREEN_BOLD}"))
+
+    # Prompt the user to input the end of the range in red color
+    end = int(input(f"{RESET}{RED}Enter the end of the range: {RESET}{GREEN_BOLD}"))
+
+
+    # Check and print whether the numbers in the given range belong to the Fibonacci series.
+    fib,non_fib = check_fibonacci_in_range(start, end)
+    print(f'{RESET}\n')
+    print('OUTPUT'.center(100,'-'))
+    print(f"\n{GREEN_BOLD}Fibonacci numbers are {RESET}{RED}{fib}{RESET}")
+    print('\n')
+    print('END'.center(100,'-'))
+
+except ValueError:
+    # Catch a ValueError if the input is not a valid integer and print an error message.
+    print(f"{RED}Invalid input! Please enter valid integer values for the range.{RESET}")
+
+except Exception as e:
+    # Catch any other exceptions that may occur and print an error message.
+    print(f"{RED}An unexpected error occurred: {e}{RESET}")
+
+
+"""
+BEGIN
+
+    # Define helper function to check if a number is a perfect square
+    FUNCTION is_perfect_square(x):
+        s = INTEGER part of the square root of x
+        RETURN s * s == x
+    END FUNCTION
+
+    # Define function to check if a number is a Fibonacci number
+    FUNCTION is_fibonacci(n):
+        RETURN is_perfect_square(5 * n * n + 4) OR is_perfect_square(5 * n * n - 4)
+    END FUNCTION
+
+    # Define function to check Fibonacci numbers in a range
+    FUNCTION check_fibonacci_in_range(start, end):
+        Initialize empty lists for Fibonacci numbers (fib_list) and non-Fibonacci numbers (non_fib_list)
+        
+        FOR num FROM start TO end DO:
+            TRY
+                IF is_fibonacci(num) THEN
+                    Add num to fib_list
+                ELSE
+                    Add num to non_fib_list
+            EXCEPT error
+                PRINT error message for the current number
+            END TRY
+        END FOR
+
+        RETURN fib_list, non_fib_list
+    END FUNCTION
+
+    # Main program
+    TRY
+        PRINT "INPUT" centered with dashes
+        
+        # Prompt user for range inputs
+        START = GET integer input for start of range
+        END = GET integer input for end of range
+
+        # Check and print Fibonacci numbers in the given range
+        fib, non_fib = check_fibonacci_in_range(START, END)
+        
+        PRINT "OUTPUT" centered with dashes
+        PRINT "Fibonacci numbers are", fib
+        PRINT "END" centered with dashes
+
+    EXCEPT ValueError
+        PRINT error message for invalid integer input
+
+    EXCEPT Exception as e
+        PRINT error message for unexpected exceptions
+
+END
+"""

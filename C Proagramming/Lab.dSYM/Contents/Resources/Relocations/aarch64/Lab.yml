@@ -1,0 +1,11 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/hari/Amrita/SEM 1/21ES601 - Embedded System Progrmming/C Proagramming/Lab'
+relocations:
+  - { offsetInCU: 0xFD, offset: 0xFD, size: 0x8, addend: 0x0, symName: _check, symObjAddr: 0x0, symBinAddr: 0x1000079F0, symSize: 0xB4 }
+  - { offsetInCU: 0x90, offset: 0x90, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x204, symBinAddr: 0x100007BF4, symSize: 0x26C }
+  - { offsetInCU: 0x19D, offset: 0x19D, size: 0x8, addend: 0x0, symName: _ascend, symObjAddr: 0xB4, symBinAddr: 0x100007AA4, symSize: 0x150 }
+  - { offsetInCU: 0x1A5, offset: 0x1A5, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x204, symBinAddr: 0x100007BF4, symSize: 0x26C }
+  - { offsetInCU: 0x261, offset: 0x261, size: 0x8, addend: 0x0, symName: _check, symObjAddr: 0x0, symBinAddr: 0x1000079F0, symSize: 0xB4 }
+  - { offsetInCU: 0x269, offset: 0x269, size: 0x8, addend: 0x0, symName: _ascend, symObjAddr: 0xB4, symBinAddr: 0x100007AA4, symSize: 0x150 }
+...
